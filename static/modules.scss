@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+*{
+    font-family: Montserrat;
+}
+.syn-logo{
+    font-weight: 400;
+}
+.navtop {
+    height: 60px;
+    width: 100%;
+    border: 0;
+    margin: auto;
+}
+
+.module-1-nav{
+    background: linear-gradient(90deg,#0094e9,#80d0c7);
+    backdrop-filter: blur( 8.0px );
+}
+.module-2-nav{
+    background: linear-gradient(90deg,#08AEEA,#2af598);
+    backdrop-filter: blur( 8.0px );
+}
+.module-3-nav{
+    background: linear-gradient(90deg,#21D4FD,#B721FF);
+    backdrop-filter: blur( 8.0px );
+}
+
+
+.navtop div {
+    display: flex;
+    margin: 0 auto;
+    height: 100%;
+}
+.navtop div h1, .navtop div a {
+    display: inline-flex;
+    align-items: center;
+}
+.navtop div h1 {
+    flex: 1;
+    font-size: 24px;
+    padding: 0;
+    margin: 0;
+    color: #ffffff;
+    font-weight: normal;
+}
+.navtop div a {
+    padding: 0 20px;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    transition-duration: 0.3s;
+}
+.navtop div a i {
+    padding: 2px 8px 0 0;
+}
+.navtop div a:hover {
+    background-color: #ffffff;
+    color: rgb(36, 36, 36);
+}
+body.loggedin {
+    background-color: #ffffff;
+}
+.content {
+    width: 1000px;
+    margin: 0 auto;
+}
+/////////////////////////
+.add_btn{
+   margin-left: 5px;
+   transition-duration: 0.3s;
+   border-radius: 8px;
+
+}
+.add_btn:hover{
+    background-color: #0094e9; 
+    margin-left: 5px;
+    color: wheat;
+}
+
+.remove_btn{
+    transition-duration: 0.3s;
+    margin-left: 8px;
+    border-radius: 6px;
+}
+.remove_btn:hover{
+   background-color: rgb(255, 68, 68); 
+   margin-left: 8px;
+}
+.input-fields{
+    margin-top: 10px;
+}
+
+
+input , select {
+ 
+    margin-top: 10px !important;
+    text-align: center;
+}
+label{
+    margin-top: 30px;
+}
+
+.file_type{
+    width: 215px;
+    height: 35px;
+    text-align: center;
+    option{
+        text-align: center;
+    }
+}
+
+.main{
+    h1{
+        font-size: 75px;
+    }
+    h1:after {
+        content: "";
+        display: block;
+        height: 7px;
+        width: 40%;
+        margin-top: 10px;
+        background: linear-gradient(90deg,#0094e9,#80d0c7);
+    }
+    .module-2-heading:after{
+        background: linear-gradient(90deg,#08AEEA,#2af598);
+    }
+    .module-3-heading:after{
+        background: linear-gradient(90deg,#21D4FD,#B721FF);
+    }
+    p{
+        font-size: 25px;
+    }
+}
+
+/////profile page
+.profile_h2{
+    color: white;
+}
+
+.loading{
+    margin-left: 50%;
+}
+.plot_image{
+    width: 100%;
+    height: 100%;
+}
+.know_more{
+    color: white;
+    padding: 20px;
+    // background: linear-gradient(90deg,#21D4FD,#B721FF);
+    text-decoration: none;
+}
+
+@media screen and (max-width: 500px) {
+   .navtop{
+       span{
+           font-size: 0;
+       }
+   }
+  }

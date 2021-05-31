@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500&display=swap');
+
+
+* {
+    box-sizing: border-box ;
+    font-family: Montserrat;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+body {
+  background-image: url("../static/images/icons/login-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+  height: 100vh;
+}
+.syn-logo{
+  font-weight: 400;
+}
+.login, .register {
+  width: 400px;
+  margin: 100px auto;
+  background: rgba( 255, 255, 255, 0.25 );
+  box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.192);
+  backdrop-filter: blur( 8.0px );
+
+}
+.login h1, .register h1 {
+  text-align: center;
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 40px;
+  font-weight: 400;
+  padding: 20px 0 20px 0;
+
+  
+}
+.login .links, .register .links {
+  display: flex;
+  font-size: 20px;
+  padding: 0 15px;
+  margin-top: 30px;  
+  margin-bottom: 10px;  
+}
+.login .links a, .register .links a {
+    color: #adb2ba;
+    text-decoration: none;
+    display: inline-flex;
+    padding: 0 10px 10px 10px;
+    font-weight: 500;
+}
+.login .links a:hover, .register .links a:hover {
+    transition-duration: 0.3s;
+    color: #ffffff;
+}
+.login .links a.active, .register .links a.active {
+    border-bottom: 3px solid #ffffff;
+    color: #ffffff;
+}
+.login form, .register form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 20px;
+}
+.form{
+  height: 45vh;
+}
+
+.login form label, .register form label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: #0067ff9c;
+    backdrop-filter: blur( 8.0px );
+    color: #ffffff;
+}
+.login form input[type="password"], .login form input[type="text"], .login form input[type="email"], .register form input[type="password"], .register form input[type="text"], .register form input[type="email"] {
+    width: 310px;
+    height: 50px;
+    border: 1px solid #dee0e4;
+    margin-bottom: 20px;
+    padding: 0 15px;
+}
+.msg{
+  display: block;
+  color: white;
+  background-color: #9da3ac65;
+  text-align: center;
+
+}
+
+.login form input[type="submit"], .register form input[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    border: 0;
+    cursor: pointer;
+  font-size: 35px;
+    font-weight: 500;
+    color: #ffffff;
+    transition: background-color 0.2s;
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 8.0px );
+}
+.login form input[type="submit"]:hover, .register form input[type="submit"]:hover {
+    background-color: #0067ff9c;
+    backdrop-filter: blur( 8.0px );
+    transition: background-color 0.2s;
+}
+.navtop {
+
+    background: rgba(100, 100, 100, 0.486);
+    backdrop-filter: blur( 8.0px );
+
+    height: 60px;
+    width: 100%;
+    border: 0;
+    margin: auto;
+}
+.navtop div {
+    display: flex;
+    margin: 0 auto;
+    height: 100%;
+}
+.navtop div h1, .navtop div a {
+    display: inline-flex;
+    align-items: center;
+}
+.navtop div h1 {
+    flex: 1;
+    font-size: 24px;
+    padding: 0;
+   margin: 0;
+    color: #eaebed;
+    font-weight: normal;
+}
+.navtop div a {
+    padding: 0 20px;
+    text-decoration: none;
+    color: #c1c4c8;
+    font-weight: bold;
+}
+.navtop div a i {
+    padding: 2px 8px 0 0;
+}
+.navtop div a:hover {
+    color: #eaebed;
+}
+body.loggedin {
+    background-color: #f3f4f7;
+}
+.content {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.content > p ,.content>div {
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+    margin: 25px 0;
+    padding: 25px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+.content > p table td, .content > div table td {
+  padding: 5px;
+}
+.content > p table td:first-child, .content > div table td:first-child {
+  font-weight: bold;
+  color: #4a536e;
+  padding-right: 15px;
+}
+
+
+.content{
+  height: 100%;
+  background: rgba( 255, 255, 255, 0.25 );
+  box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.192);
+  backdrop-filter: blur( 8.0px );
+
+  p{
+    font-size: 30px;
+    margin-bottom: 0;
+  }
+  .modules{
+
+    background-color: transparent;
+    height: 100%;
+    margin-top: 0;
+    padding-top: 0;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    .module-card{
+      
+      display: inline-block;
+      height: 25%;
+      width: 48%;
+      padding: 20px;
+      margin-top: 45px;
+      border-radius: 5px;
+
+      background-color: rgba(255, 255, 255, 0.712);
+      background-color: #0093E9;
+      background-image: linear-gradient(160deg, #00a2ff 0%, #72e0d4 100%);
+
+        backdrop-filter: blur( 10.0px );
+        transition-duration: 0.3s;
+
+        a{
+          text-decoration: none;
+        
+            h3{
+              margin: 0;
+              font-size: 24px;
+              margin-bottom: 8px;
+              color: rgb(255, 255, 255);
+            }
+            p{
+              color: rgb(41, 41, 41);
+              font-size: 18px;
+            }
+
+        }  
+      }
+
+    
+      .module-1:hover{
+        box-shadow: 
+        -5px -5px 20px #0094e994 ,
+        5px 5px 20px #80d0c798;
+        
+      }
+
+      .module-2{
+        background-color: #08AEEA;
+        background-image: linear-gradient(225deg, #08AEEA 0%, #2AF598 100%);
+        backdrop-filter: blur( 10.0px );
+        transition-duration: 0.3s;
+
+        margin-left: 20px;
+      }
+
+      .module-2:hover{
+        box-shadow:  
+        -5px 5px 20px #2af598 ,
+        5px -5px 20px #08AEEA;
+      }
+
+      .module-3{
+        background-color: #21D4FD;
+        background-image: linear-gradient(40deg, #21D4FD 0%, #B721FF 100%);
+        backdrop-filter: blur( 10.0px );
+        transition-duration: 0.3s;
+      }
+      .module-3:hover{
+        box-shadow: 
+        16px -10px 30px #b921ffc4,
+        -3px 6px 30px #21d5fdc2;
+      }
+
+  }
+}
+
+
+@media screen and (max-width: 500px) {
+  .navtop{
+      span{
+          font-size: 0;
+      }
+  }
+ }

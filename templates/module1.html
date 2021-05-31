@@ -1,0 +1,61 @@
+{% extends 'module_layout.html' %}
+
+{% block title %}Module1{% endblock %}
+
+{% block content %}
+
+    <div class="main container mt-5" >  
+
+       <h1 class="display-2">Module 1 : Generate From Scratch</h1>
+       <p class="display-6">
+        Synthesise data sets without prior dataset. Set fields, and number of rows to be generate and generate data
+        </p>
+
+        <form method="POST" class="input_form container mt-3">
+            <div class="input-wrapper  col-md-6">
+                <div class="input-fields">
+                <label for="row_num">Total Number Of Rows To Be Generated :</label> 
+                <input type="number" name="row_num" value="10" class="form-control d-inline text-center"> 
+                <br>
+
+                <label for="file_type" class=" mt-2">Select File Type :</label>
+                <select name="file_type" class="form-control d-inline file_type mt-2">
+                    <option value="excel">Excel</option>
+                    <option value="csv">CSV</option>
+                </select>
+
+                <br>
+                <label class="d-block mt-3" for="field[]"> Enter Fields :</label>
+                <input type="text" class="d-inline form-control mt-3" style="width: 88% !important;" name="field[]" value=""  />
+                <a href="javascript:void(0);" class="d-inline add-input" title="Add input"><img class="ml-5 add_btn" src="../static/images/icons/add.svg" width="35px"/></a>
+                </div>
+            </div>
+            <input type="submit" value="Generate" class="btn btn-outline-primary mt-3" style="width: 50% !important;" name="cmdsubmit">
+        </form>
+       
+    </div>  
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script>
+        $('#navbar').addClass('module-1-nav');
+
+        $(document).ready(function(){
+            var add_input = $('.add-input');
+            var input_wrapper = $('.input-wrapper');
+            var new_input = '  <div class="input-fields"> <input type="text" style="width: 88% !important;" class="d-inline form-control mt-3" name="field[]" value=""/><a href="javascript:void(0);" class="remove-input  " title="Remove input"><img class="ml-5 remove_btn" src="../static/images/icons/remove.svg" width="35px"/></a></div>';
+            var add_input_count = 1; 
+            $(add_input).click(function(){
+                    add_input_count++; 
+                    $(input_wrapper).append(new_input); 
+                
+            });
+            $(input_wrapper).on('click', '.remove-input', function(e){
+                e.preventDefault();
+                $(this).fadeOut(300,()=>{$(this).parent('div').remove();}) 
+                add_input_count--;
+            });
+        });
+        </script>
+
+{% endblock %}

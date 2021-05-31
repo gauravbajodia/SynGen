@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+	<!-- <link rel="stylesheet" href="../static/modules.css"> -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='modules.css') }}">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+	
+    <title>{% block title %}{% endblock %}</title>
+
+    <link rel="icon" href="../static/images/icons/title_logo.svg" type="image/icon type">
+</head>
+<body>
+    <nav class="navtop " id="navbar">
+        <div class="container">
+            <h1><a href="{{url_for('home')}}"><i class="syn-logo m-0 p-0">Syn</i>Gen</a></h1>
+                <a href="{{ url_for('home') }}"><i class="fas fa-home"></i><span>Home </span></a>
+                <a href="{{ url_for('profile') }}"><i class="fas fa-user-circle"></i><span>Profile </span></a>
+            
+                <a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i><span> Logout </span></a>
+        </div>
+    </nav>
+    {% block content %}{% endblock %}
+
+</body>
+</html>

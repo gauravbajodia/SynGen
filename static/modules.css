@@ -1,0 +1,193 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+* {
+  font-family: Montserrat;
+}
+
+.syn-logo {
+  font-weight: 400;
+}
+
+.navtop {
+  height: 60px;
+  width: 100%;
+  border: 0;
+  margin: auto;
+}
+
+.module-1-nav {
+  background: -webkit-gradient(linear, left top, right top, from(#0094e9), to(#80d0c7));
+  background: linear-gradient(90deg, #0094e9, #80d0c7);
+  -webkit-backdrop-filter: blur(8px);
+          backdrop-filter: blur(8px);
+}
+
+.module-2-nav {
+  background: -webkit-gradient(linear, left top, right top, from(#08AEEA), to(#2af598));
+  background: linear-gradient(90deg, #08AEEA, #2af598);
+  -webkit-backdrop-filter: blur(8px);
+          backdrop-filter: blur(8px);
+}
+
+.module-3-nav {
+  background: -webkit-gradient(linear, left top, right top, from(#21D4FD), to(#B721FF));
+  background: linear-gradient(90deg, #21D4FD, #B721FF);
+  -webkit-backdrop-filter: blur(8px);
+          backdrop-filter: blur(8px);
+}
+
+.navtop div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.navtop div h1, .navtop div a {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navtop div h1 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  font-size: 24px;
+  padding: 0;
+  margin: 0;
+  color: #ffffff;
+  font-weight: normal;
+}
+
+.navtop div a {
+  padding: 0 20px;
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+}
+
+.navtop div a i {
+  padding: 2px 8px 0 0;
+}
+
+.navtop div a:hover {
+  background-color: #ffffff;
+  color: #242424;
+}
+
+body.loggedin {
+  background-color: #ffffff;
+}
+
+.content {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.add_btn {
+  margin-left: 5px;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  border-radius: 8px;
+}
+
+.add_btn:hover {
+  background-color: #0094e9;
+  margin-left: 5px;
+  color: wheat;
+}
+
+.remove_btn {
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  margin-left: 8px;
+  border-radius: 6px;
+}
+
+.remove_btn:hover {
+  background-color: #ff4444;
+  margin-left: 8px;
+}
+
+.input-fields {
+  margin-top: 10px;
+}
+
+input, select {
+  margin-top: 10px !important;
+  text-align: center;
+}
+
+label {
+  margin-top: 30px;
+}
+
+.file_type {
+  width: 215px;
+  height: 35px;
+  text-align: center;
+}
+
+.file_type option {
+  text-align: center;
+}
+
+.main h1 {
+  font-size: 75px;
+}
+
+.main h1:after {
+  content: "";
+  display: block;
+  height: 7px;
+  width: 40%;
+  margin-top: 10px;
+  background: -webkit-gradient(linear, left top, right top, from(#0094e9), to(#80d0c7));
+  background: linear-gradient(90deg, #0094e9, #80d0c7);
+}
+
+.main .module-2-heading:after {
+  background: -webkit-gradient(linear, left top, right top, from(#08AEEA), to(#2af598));
+  background: linear-gradient(90deg, #08AEEA, #2af598);
+}
+
+.main .module-3-heading:after {
+  background: -webkit-gradient(linear, left top, right top, from(#21D4FD), to(#B721FF));
+  background: linear-gradient(90deg, #21D4FD, #B721FF);
+}
+
+.main p {
+  font-size: 25px;
+}
+
+.profile_h2 {
+  color: white;
+}
+
+.loading {
+  margin-left: 50%;
+}
+
+.plot_image {
+  width: 100%;
+  height: 100%;
+}
+
+.know_more {
+  color: white;
+  padding: 20px;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 500px) {
+  .navtop span {
+    font-size: 0;
+  }
+}
+/*# sourceMappingURL=modules.css.map */

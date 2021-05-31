@@ -1,0 +1,118 @@
+{% extends 'module_layout.html' %}
+
+{% block title %}Module3{% endblock %}
+
+{% block content %}
+
+
+    <div class="main container mt-4" >  
+
+        <h1 class="module-3-heading">Module 3 - Compare Algorithms</h1>
+        <p>
+            Comapre machine learning algorithm performnce on uploaded data-sets, <br>
+            and generate efficiency of different techniques
+        </p>
+        
+        <!-- <form method="POST" class="input_form container mt-3"> -->
+        <form  action="{{url_for('upload')}}" method="POST" enctype="multipart/form-data" class="input_form container mt-3 row" id="upload-file">
+            <div class="input-wrapper col-md-4 ">
+
+                    <label for="fileUpload" class="upload-label mt-0">Upload File</label>
+                    <input type="file" class="form-control" name="file" id="fileUpload" accept=".csv , .excel" required>
+                    
+                    <label for="type_select" >Select Machine Learning Type :</label>
+                    <select name="type_select" class="form-control" id="type_select">
+                        <option value="supervised_learning">Supervised Learning (Regression)</option>
+                        <option value="classification">Supervised Learning (Classification)</option>
+                        <option value="unsupervised_learning">Unsupervised Learning</option>
+                    </select>
+                    <div id="input_values" class="input_val">
+
+                        <label for="x_value">X :</label>
+                        <input type="text" class="form-control" required="" id="x_value" name="x_value">
+                       
+                        <label for="y_value">Y :</label>
+                        <input type="text" class="form-control" required="" id="y_value" name="y_value">
+                    
+                    </div>
+              
+                    <input type="submit" value="Generate" class="btn btn-outline-primary mt-3" name="cmdsubmit" style="width: 100%;" >
+            </div>
+
+
+            <div class="col-md-8">
+                
+                <img src="../static/images/icons/loading.gif" class="loading" id="loading" alt="loading">
+
+                {% if(img==1) %}
+                <div class="row mt-2">
+                    
+                    <div class="col-md">
+                        <h2 class="display-5">Most Efficient : <p> {{mostEfficientAlgo}} </p> </h2>
+                        <h2 class="mt-4 display-5">Optimal {{algoList[1]}} : <br> <p> {{result}} </p> </h2>
+                        <a href="#know_more" class=" btn btn-info know_more">Details</a>
+                    </div>  
+
+                    <div class="col-md">
+                        <img src="../static/images/{{algoList[0]}}/comparison.png"  class="plot_image img-fluid" alt="graphPlot" >
+
+                    </div>
+
+                </div>
+
+                
+            
+                {% endif %}
+            </div>
+        </form>
+
+        {% if(img==1) %}
+            <section class="container-fluid row mt-5" id="know_more">
+                
+                <h3>Details :</h3>
+                
+                {%for i in range(2, len)%}
+                
+                <div class="col-md-4">
+                    <img src="../static/images/{{algoList[0]}}/{{algoList[i]}}.png" class="img-fluid mt-3" alt="graphPlot" >
+                    <p style="font-size: 1.5em;"> <b>{{i}}. {{algoList[i]}} </b> : {{accuracies[i-2]}} </p>
+                </div>
+                
+                {%endfor%}
+                
+            </section>
+        {% endif %}
+    </div>  
+
+<script>
+
+    document.getElementById("navbar").classList.add("module-3-nav");
+    var check = document.getElementById("checkbox");
+    var form = document.getElementById("upload-file");
+    var type_select = document.getElementById("type_select");
+    var y_value = document.getElementById("y_value");
+    var loading = document.getElementById("loading");
+
+    loading.style.display="none";   //remove loader on page loader
+
+    type_select.addEventListener("change",function(){
+
+        if(this.value=="unsupervised_learning"){
+            y_value.type="number";
+        }
+        else{
+            y_value.type="type";
+            
+        }
+
+    })
+
+    form.addEventListener("submit",()=>{
+        loading.style.display="block";
+    })
+
+
+</script>
+
+
+{% endblock %}

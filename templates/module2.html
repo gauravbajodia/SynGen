@@ -1,0 +1,67 @@
+{% extends 'module_layout.html' %}
+
+{% block title %}Module 2{% endblock %}
+
+{% block content %}
+
+    <div class="main container mt-5" >  
+
+        
+        <h1> Module 2 - Generate From Data</h1>
+        <p>
+            Generate synthetic data by learning from existing dataset, <br>
+            while mainting the data types and statistical trends.
+        </p>
+
+        <form method="POST"  class="form-inline input_form container row mt-3" id="upload-file" enctype="multipart/form-data">
+            <div class="input-wrapper col-md-6 ">
+
+                <label for="fileUpload" class="upload-label mt-0">Upload File</label>
+                <input type="file" class="form-control" name="file" id="fileUpload" accept=".csv , .excel" required>
+                    
+                <div class="input-fields">
+                <label for="row_num">Total Number of Rows To Be Generated :</label> 
+                <input type="number" name="row_num" value="10" class="form-control text-center"> 
+                </div>
+                <br>
+
+                <div class="input-fields">
+                <label for="primary_key_index">Index of Primary Key Column :</label> 
+                <input type="text" name="primary_key_index" value="Id" class="form-control text-center"> 
+                </div>
+                <br>
+
+                <label for="file_type" class="mt-2 ">Select file Type :</label>
+                <select name="file_type" class="file_type form-control mt-2">
+                    <option value="excel">Excel</option>
+                    <option value="csv">CSV</option>
+                </select>
+
+                <input type="submit" value="Generate" class="btn btn-outline-primary mt-3" name="cmdsubmit">
+            </div>
+            
+
+            <div class="col-md-5">
+                <img src="../static/images/icons/loading.gif" class="loading" id="loading" alt="loader.gif">
+                <h2>{{similarity_index}}</h2>
+            </div>
+        </form>
+       
+    </div>  
+
+
+    <script>
+        document.getElementById("navbar").classList.add("module-2-nav");
+        
+        var loading = document.getElementById("loading");
+        var form = document.getElementById("upload-file");   
+
+        loading.style.display="none";   //remove loader on page loader
+
+        form.addEventListener("submit",()=>{
+            loading.style.display="block";
+        })
+
+    </script>
+
+{% endblock %}

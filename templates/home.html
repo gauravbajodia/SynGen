@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<p class="display-3 ">Welcome back, {{ username }}!</p>
+		
+			<div class="modules container " >
+
+					<div class="module-card module-1 col-md-6">
+
+						<a href="{{ url_for('module1') }}"> 
+							<h3>Module 1 - Generate From Scratch</h3>
+							<p>
+								Synthesise data-sets without prior dataset. <br>
+								set fields and generate data
+							</p>
+						</a>
+					
+					</div>
+
+					<div class="module-card module-2 col-md-6">
+
+						<a href="{{ url_for('module2') }}"> 
+							<h3>Module 2 - Generate From Data</h3>
+							<p>
+								perform machine learning algorithm on uploaded data-sets, 
+								to generate efficiency of different techniques
+							</p>
+						</a>
+					
+					</div>
+				
+					<div class="module-card module-3 col-lg-6">
+
+						<a href="{{ url_for('module3') }}"> 
+							<h3>Module 3 - Compare Algorithms</h3>
+							<p>
+								perform machine learning algorithm on uploaded data-sets, 
+								to generate efficiency of different techniques
+							</p>
+						</a>
+					
+					</div>
+			</div>
+
+{% endblock %}
+
