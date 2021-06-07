@@ -5,7 +5,7 @@ py -m pip install --user virtualenv
 
 py -m venv env
 
-.\env\Scripts\activate
+.\syngenenv\Scripts\activate
  
 pip install sdv
 Faker==5.6.1

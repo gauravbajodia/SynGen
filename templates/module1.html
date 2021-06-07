@@ -8,10 +8,11 @@
 
        <h1 class="display-2">Module 1 : Generate From Scratch</h1>
        <p class="display-6">
-        Synthesise data sets without prior dataset. Set fields, and number of rows to be generate and generate data
+        Synthesise data sets without prior dataset. Set fields,
+        and number of rows to be generate and generate data
         </p>
 
-        <form method="POST" class="input_form container mt-3">
+        <form method="POST" class="input_form container mt-3" style="font-size: 1.5em">
             <div class="input-wrapper  col-md-6">
                 <div class="input-fields">
                 <label for="row_num">Total Number Of Rows To Be Generated :</label> 
@@ -19,10 +20,15 @@
                 <br>
 
                 <label for="file_type" class=" mt-2">Select File Type :</label>
-                <select name="file_type" class="form-control d-inline file_type mt-2">
-                    <option value="excel">Excel</option>
-                    <option value="csv">CSV</option>
-                </select>
+     
+                <div class="form-check form-check-inline ms-5 " >
+                    <input type="radio"  class=" " id="csv" name="file_type" value="csv" required>
+                    <label class="form-check-label" for="csv">CSV</label><br>
+                </div>
+                <div class="form-check form-check-inline ms-5"> 
+                    <input type="radio" class=" " id="excel" name="file_type" value="excel" required>
+                    <label class="form-check-label" for="excel">Excel</label><br>
+                </div>
 
                 <br>
                 <label class="d-block mt-3" for="field[]"> Enter Fields :</label>

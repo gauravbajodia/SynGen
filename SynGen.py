@@ -313,15 +313,15 @@ class generate_from_scratch:
     def gen_csv(
             self, 
             df):
-        df.to_csv("./generated_dataset.csv")
-        return "./generated_dataset.csv"
+        df.to_csv("./downloads/generated_dataset.csv")
+        return "./downloads/generated_dataset.csv"
         
     def gen_excel(
         self, 
         df
         ):
-        df.to_excel("./generated_dataset.xlsx")
-        return "./generated_dataset.xlsx"
+        df.to_excel("./downloads/generated_dataset.xlsx")
+        return "./downloads/generated_dataset.xlsx"
     
     def gen_table(
             self,
@@ -423,10 +423,10 @@ class generate_from_data:
         model = GaussianCopula(primary_key=pkey)
         model.fit(self.df)
         syn_data = model.sample(num)
-        index= evaluate(syn_data, self.df)
-        print("asddddddddddddddddddddddddddddddddddddddddddddddddd-------------------------")
-        print(index)
-        return syn_data,index
+
+        # similarity_index= evaluate(syn_data, self.df)
+      
+        return syn_data 
         
 
     
@@ -946,7 +946,7 @@ class compare_algo:
         sscores = [dbscan, kmeans]
         
         #plt.plot(algoList[1:], sscores, color = 'b', marker = 'o', markersize = 10, label = "Silhouette Score", linestyle = '--', linewidth = 3)
-        df = pd.DataFrame({'Algorithm': algoList[2:], 'Silhouette Score': sscores})
+        df = pd.DataFrame({'Algorithm': algoList[1:], 'Silhouette Score': sscores})
         splot = sns.barplot(x = 'Algorithm', y = 'Silhouette Score', data = df)
         for p in splot.patches:
             splot.annotate(format(p.get_height(), '.1f'), 

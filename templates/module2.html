@@ -9,11 +9,10 @@
         
         <h1> Module 2 - Generate From Data</h1>
         <p>
-            Generate synthetic data by learning from existing dataset, <br>
-            while mainting the data types and statistical trends.
+            Generate synthetic data by learning from existing dataset, while maintaining the data types and statistical trends
         </p>
 
-        <form method="POST"  class="form-inline input_form container row mt-3" id="upload-file" enctype="multipart/form-data">
+        <form method="POST" class="form-inline input_form container row mt-3" style="font-size: 1.3em" id="upload-file" enctype="multipart/form-data">
             <div class="input-wrapper col-md-6 ">
 
                 <label for="fileUpload" class="upload-label mt-0">Upload File</label>
@@ -21,29 +20,39 @@
                     
                 <div class="input-fields">
                 <label for="row_num">Total Number of Rows To Be Generated :</label> 
-                <input type="number" name="row_num" value="10" class="form-control text-center"> 
+                <input type="number" name="row_num" value="10" class="form-control text-center" id="row_num"> 
                 </div>
                 <br>
 
                 <div class="input-fields">
                 <label for="primary_key_index">Index of Primary Key Column :</label> 
-                <input type="text" name="primary_key_index" value="Id" class="form-control text-center"> 
+                <input type="text" name="primary_key_index" value="Id" class="form-control text-center" id="primary_key_index" >  
                 </div>
                 <br>
 
                 <label for="file_type" class="mt-2 ">Select file Type :</label>
-                <select name="file_type" class="file_type form-control mt-2">
+                <!-- <select name="file_type" class="file_type form-control mt-2" style="text-align: center !important;">
                     <option value="excel">Excel</option>
                     <option value="csv">CSV</option>
-                </select>
-
-                <input type="submit" value="Generate" class="btn btn-outline-primary mt-3" name="cmdsubmit">
+                </select> -->
+                
+                <div class="form-check form-check-inline">
+                    <input type="radio"  class=" " id="csv" name="file_type" value="csv" required>
+                    <label class="form-check-label" for="csv">CSV</label><br>
+                </div>
+                    <input type="radio" class=" " id="excel" name="file_type" value="excel" required>
+                    <label class="form-check-label" for="excel">Excel</label><br>
+           
+                
+            
+                <input type="submit" value="Generate" class="btn btn-outline-primary mt-3 w-100" name="cmdsubmit">
             </div>
             
 
-            <div class="col-md-5">
-                <img src="../static/images/icons/loading.gif" class="loading" id="loading" alt="loader.gif">
-                <h2>{{similarity_index}}</h2>
+            <div class="col-md-5 " id="loading">
+                <img src="../static/images/icons/loading.gif" class="loading" id="loader" alt="loader.gif">
+                <p>Your file will be downloaded soon. <br> <a href="{{url_for('module2')}}">Click here to reload</a> </p>
+               
             </div>
         </form>
        
@@ -54,13 +63,20 @@
         document.getElementById("navbar").classList.add("module-2-nav");
         
         var loading = document.getElementById("loading");
+        var row_num = document.getElementById("row_num");
         var form = document.getElementById("upload-file");   
-
+        var loader_timer = 1000;
         loading.style.display="none";   //remove loader on page loader
 
+        
+        loader_timer= row_num.value>5000?20000:10000;
         form.addEventListener("submit",()=>{
             loading.style.display="block";
-        })
+            console.log(loader_timer);
+            setTimeout(() => {
+                loading.style.display="none";   //remove loader on page loader
+            }, loader_timer);
+        }) 
 
     </script>
 

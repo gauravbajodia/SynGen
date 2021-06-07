@@ -8,6 +8,7 @@ from flask.helpers import send_file
 import os
 import yaml
 import pandas as pd
+import shutil
 
 
 obj = generate_from_scratch()
@@ -111,21 +112,31 @@ def register():
     return render_template('register.html', msg=msg)
 
 # http://localhost:5000/pythinlogin/home - this will be the home page, only accessible for loggedin users
-@app.route('/home')
+@app.route('/home',methods=['GET'])
 def home():
     # Check if user is loggedin
     if 'loggedin' in session:
+        if request.method == 'GET':
+ 
+            clean_folders("./downloads")
+            clean_folders("./uploads")
+            clean_folders("./static/images/classifications")
+            clean_folders("./static/images/regressions")
+            clean_folders("./static/images/unsupervised")
+             
         # User is loggedin show them the home page
         return render_template('home.html', username=session['username'])
     # User is not loggedin redirect to login page
     return redirect(url_for('login'))
-    if request.method == 'POST':
-        if request.form['submit_button'] == 'Do Something':
-            pass # do something 
-        else:
-            pass # unknown
-    elif request.method == 'GET':
-            return redirect(url_for('module1'))
+    
+def clean_folders(file_path):
+   
+    if os.path.isfile(file_path) or os.path.islink(file_path):
+        os.unlink(file_path)
+        os.mkdir(file_path)
+    elif os.path.isdir(file_path):
+        shutil.rmtree(file_path)
+        os.mkdir(file_path)
 
 # http://localhost:5000/pythinlogin/profile - this will be the profile page, only accessible for loggedin users
 @app.route('/profile')
@@ -145,65 +156,69 @@ def profile():
 
 @app.route('/module1', methods =["GET", "POST"])
 def module1():
-    if request.method == "POST": 
-       # getting input with name = fields in HTML form 
+    
+    if 'loggedin' in session:
+        if request.method == 'GET':
+            
+            return render_template("module1.html") 
+        if request.method == "POST": 
+        # getting input with name = fields in HTML form 
 
-        inputs = request.form.getlist('field[]')
-        row_num = request.form.get('row_num')    #number of rows to be generated
-        file_type = request.form.get('file_type')
-        df = obj.gen_dataframe(fields=inputs,num=row_num)
+            inputs = request.form.getlist('field[]')
+            row_num = request.form.get('row_num')    #number of rows to be generated
+            file_type = request.form.get('file_type')
+            df = obj.gen_dataframe(fields=inputs,num=row_num)
 
-        if(str(file_type) == "csv"):
-            return send_file(obj.gen_csv(df),as_attachment='True')
-        elif(str(file_type) == "excel"):
-            return send_file(obj.gen_excel(df),as_attachment='True')
+            if(str(file_type) == "csv"):
+                return send_file(obj.gen_csv(df),as_attachment='True')
+            elif(str(file_type) == "excel"):
+                return send_file(obj.gen_excel(df),as_attachment='True')
         
-    return render_template("module1.html") 
-
+        return render_template("module1.html") 
+    return redirect(url_for('login'))
 
 # MODULE 2
 @app.route('/module2', methods =["GET", "POST"])
 def module2():
-    similarity_index = 0
-    if request.method == 'POST':
-        f = request.files['file']   
-        row_num = request.form.get('row_num')    #number of rows to be generated
-        primary_key_index=request.form.get("primary_key_index")
-        file_type = request.form.get('file_type')
+    if 'loggedin' in session:
 
-        # Save the file to ./uploads
-        basepath = os.path.dirname(__file__)
-        file_path = os.path.join(basepath, 'uploads', secure_filename(f.filename))
-        f.save(file_path)
+        if request.method == 'GET':
+            
+            return render_template("module2.html") 
+        if request.method == 'POST':
+            f = request.files['file']   
+            row_num = request.form.get('row_num')    #number of rows to be generated
+            primary_key_index=request.form.get("primary_key_index")
+            file_type = request.form.get('file_type')
+            
+            # Save the file to ./uploads
+            basepath = os.path.dirname(__file__)
+            file_path = os.path.join(basepath, 'uploads', secure_filename("mod2_generated_synthetic_dataset.csv"))
+            f.save(file_path)
 
-        # df = obj.gen_dataframe(pkey=primary_key_index,num=row_num)
-        df=pd.read_csv(file_path) 
-        Mod2 =  generate_from_data(df)
-        generated=Mod2.learn_and_generate(pkey=primary_key_index,num=int(row_num))
-        similarity_index = str(generated[1])
-        print("hi")
-        print(generated)
-        if(str(file_type) == "csv"):
-            return send_file(obj.gen_csv(generated[0]),as_attachment='True')
-        elif(str(file_type) == "excel"):
-            return send_file(obj.gen_excel(generated[0]),as_attachment='True')
-        print(generated)
-        # if os.path.exists("generated_dataset.csv"):
-        #     os.remove("generated_dataset.csv")
-        # else:
-        #     print("The file does not exist")
-
-        # os.remove("./generated_dataset.csv")
-       
-    return render_template("module2.html"), similarity_index
+            # Generate Dataset
+            df=pd.read_csv(file_path) 
+            Mod2 =  generate_from_data(df)
+            generated=Mod2.learn_and_generate(pkey=primary_key_index,num=int(row_num))
+            
+            # Download Dataset
+            if(str(file_type) == "csv"):
+                return send_file(obj.gen_csv(generated),as_attachment='True')
+            elif(str(file_type) == "excel"):
+                return send_file(obj.gen_excel(generated),as_attachment='True')
+            
+        return render_template("module2.html") 
+    return redirect(url_for('login'))
 
 
 
 # MODULE 3
 @app.route('/module3', methods =["GET", "POST"])
 def module3():
-
-    return render_template("module3.html") 
+    if 'loggedin' in session:
+        if request.method == 'GET':
+            return render_template("module3.html") 
+    return redirect(url_for('login'))
 
 @app.route('/predict', methods=['GET', 'POST'])
 def upload():
@@ -217,7 +232,7 @@ def upload():
         result = []
         # Save the file to ./uploads
         basepath = os.path.dirname(__file__)
-        file_path = os.path.join(basepath, 'uploads', secure_filename(f.filename))
+        file_path = os.path.join(basepath, 'uploads', secure_filename("mod3_uploaded_dataset.csv"))
         f.save(file_path)
 
         df=pd.read_csv(file_path) 
@@ -230,7 +245,6 @@ def upload():
         elif(algoType=="unsupervised_learning"):
             result =  compareAlgo.unsupervisedAlgos(x,int(y))
            
-        print("asdbadhaofaofiadhsik")
     return render_template("module3.html",result=result[0],mostEfficientAlgo=result[1],accuracies=result[2],algoList=result[3],len=result[4],img=1)
 
 
