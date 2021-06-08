@@ -9,6 +9,6 @@ py -m venv env
  
 pip install sdv
 Faker==5.6.1
-Akash Kothare1:16 PM
+
 from sdv.evaluation import evaluate
 "evaluation GaussianCoupla", evaluate(syn_data, df)
