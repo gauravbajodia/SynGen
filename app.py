@@ -15,7 +15,7 @@ obj = generate_from_scratch()
 
 app = Flask(__name__)
 
-if __name__=="__main__":
+if __name__=="__app__":
     app.run(host=os.getenv('IP', '0.0.0.0'), 
             port=int(os.getenv('PORT', 4444)))
 
