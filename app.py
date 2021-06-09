@@ -250,4 +250,4 @@ def upload():
     return render_template("module3.html",result=result[0],mostEfficientAlgo=result[1],accuracies=result[2],algoList=result[3],len=result[4],img=1)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
