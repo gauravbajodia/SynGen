@@ -9,7 +9,7 @@ import os
 import yaml
 import pandas as pd
 import shutil
-
+from flask_sqlalchemy import SQLAlchemy
 
 obj = generate_from_scratch()
 
