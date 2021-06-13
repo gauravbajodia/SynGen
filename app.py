@@ -15,25 +15,41 @@ obj = generate_from_scratch()
 
 app = Flask(__name__)
 
+ENV = 'dev'
 
+if ENV == 'dev':
+    app.debug = True
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'DATABASE_URL'
+else:
+    app.debug = False
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'DATABASE_URL'
+
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db = SQLAlchemy(app)
 
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 app.secret_key = '1234'
-db = SQLAlchemy()
-# Enter your database connection details below
-#app.config['MYSQL_HOST'] = db['MYSQL_HOST']
-#app.config['MYSQL_USER'] = db['MYSQL_USER']
-#app.config['MYSQL_PASSWORD'] = db['MYSQL_PASSWORD']
-#app.config['MYSQL_DB'] = db['MYSQL_DB']
+
+class logindatabase(db.Model)
+    __tablename__ = 'database'
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(200), unique=True)
+    password = db.Column(db.String(200),unique=True)
+    email = db.Column(db.String(200),unique=True)
+
+    def __init__(self, username, password, email):
+        self.username = username
+        self.password = password
+        self.email = email
+        
 
 
 
 
 
 
-# Intialize MySQL
-mysql = MySQL(app)
 
 # http://localhost:5000/login - this will be the login page, we need to use both GET and POST requests
 
