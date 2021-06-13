@@ -20,12 +20,14 @@ app = Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 app.secret_key = '1234'
-db = yaml.load(open('SQL_Login.yaml'))
+db = SQLAlchemy()
 # Enter your database connection details below
-app.config['MYSQL_HOST'] = db['MYSQL_HOST']
-app.config['MYSQL_USER'] = db['MYSQL_USER']
-app.config['MYSQL_PASSWORD'] = db['MYSQL_PASSWORD']
-app.config['MYSQL_DB'] = db['MYSQL_DB']
+#app.config['MYSQL_HOST'] = db['MYSQL_HOST']
+#app.config['MYSQL_USER'] = db['MYSQL_USER']
+#app.config['MYSQL_PASSWORD'] = db['MYSQL_PASSWORD']
+#app.config['MYSQL_DB'] = db['MYSQL_DB']
+
+
 
 
 
