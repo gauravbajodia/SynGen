@@ -26,7 +26,7 @@ else:
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-db = SQLAlchemy(app)
+db = SQLAlchemy()
 
 class logindatabase(db.Model):
     __tablename__ = 'database'
