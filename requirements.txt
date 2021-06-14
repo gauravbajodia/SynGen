@@ -13,3 +13,4 @@ gunicorn==20.0.4
 flask-sqlalchemy == 2.5.1
 psycopg2 == 2.8.6
 mysqlclient==2.0.1
+py-mysql2pgsql == 0.1.5
