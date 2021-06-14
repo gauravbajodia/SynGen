@@ -28,7 +28,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
-class logindatabase(db.Model)
+class logindatabase(db.Model):
     __tablename__ = 'database'
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(200), unique=True)
