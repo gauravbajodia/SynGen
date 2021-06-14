@@ -16,5 +16,5 @@ configparser == 5.0.2
 flask-sqlalchemy == 2.5.1
 psycopg2 == 2.8.6
 mysqlclient == 2.0.3
-
+MySQL == 8.0.21
 
