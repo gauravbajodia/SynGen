@@ -28,10 +28,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
-app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
-
-app.secret_key = '1234'
-
 class logindatabase(db.Model)
     __tablename__ = 'database'
     id = db.Column(db.Integer, primary_key=True)
@@ -49,7 +45,9 @@ class logindatabase(db.Model)
 
 
 
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
+app.secret_key = '1234'
 
 # http://localhost:5000/login - this will be the login page, we need to use both GET and POST requests
 
