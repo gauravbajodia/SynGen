@@ -24,6 +24,9 @@ mysql = MySQL(app)
 #app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 #app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 # Enter your database connection details below
+
+db = yaml.load(open('SQL_Login.yaml'))
+
 app.config['MYSQL_HOST'] = db['MYSQL_HOST']
 app.config['MYSQL_USER'] = db['MYSQL_USER']
 app.config['MYSQL_PASSWORD'] = db['MYSQL_PASSWORD']
