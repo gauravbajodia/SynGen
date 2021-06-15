@@ -18,14 +18,8 @@ db = SQLAlchemy(app)
 mysql = MySQL(app)
 
 
-ENV = 'dev'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://gligeftegfsedn:f60baa1c5e90155d15dc907db87d8bdbb9f60b8a5c215450e6caa8dcecb2e886@ec2-34-193-112-164.compute-1.amazonaws.com:5432/d60t4hpg6s87ot'
 
-if ENV == 'dev':
-    app.debug = True
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://gligeftegfsedn:f60baa1c5e90155d15dc907db87d8bdbb9f60b8a5c215450e6caa8dcecb2e886@ec2-34-193-112-164.compute-1.amazonaws.com:5432/d60t4hpg6s87ot'
-else:
-    app.debug = False
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://gligeftegfsedn:f60baa1c5e90155d15dc907db87d8bdbb9f60b8a5c215450e6caa8dcecb2e886@ec2-34-193-112-164.compute-1.amazonaws.com:5432/d60t4hpg6s87ot'
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
