@@ -1,4 +1,4 @@
-MYSQL_HOST : 'sql6.freemysqlhosting.net'
-MYSQL_USER : 'sql6419320'
-MYSQL_PASSWORD : 'Please wait'
-MYSQL_DB : 'sql6419320'
+MYSQL_HOST : 'remotemysql.com'
+MYSQL_USER : 'TlchbRbVsA'
+MYSQL_PASSWORD : 'WGwAayPT6m'
+MYSQL_DB : 'TlchbRbVsA'
