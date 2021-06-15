@@ -25,8 +25,8 @@ else:
     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://gligeftegfsedn:f60baa1c5e90155d15dc907db87d8bdbb9f60b8a5c215450e6caa8dcecb2e886@ec2-34-193-112-164.compute-1.amazonaws.com:5432/d60t4hpg6s87ot'
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-db = SQLAlchemy()
+app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
+db = SQLAlchemy(app)
 
 class logindatabase(db.Model):
     __tablename__ = 'database'
