@@ -14,7 +14,7 @@ from flask_sqlalchemy import SQLAlchemy
 obj = generate_from_scratch()
 
 app = Flask(__name__)
-db = SQLAlchemy(app)
+#db = SQLAlchemy(app)
 mysql = MySQL(app)
 
 
