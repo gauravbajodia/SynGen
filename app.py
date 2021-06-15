@@ -26,7 +26,9 @@ else:
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
+
 db = SQLAlchemy(app)
+mysql = MySQL(app)
 
 class logindatabase(db.Model):
     __tablename__ = 'database'
