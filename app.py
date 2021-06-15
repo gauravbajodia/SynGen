@@ -33,7 +33,7 @@ app.config['MYSQL_PASSWORD'] = db['MYSQL_PASSWORD']
 app.config['MYSQL_DB'] = db['MYSQL_DB']
 
 
-class logindatabase(db.Model):
+'''class logindatabase(db.Model):
     __tablename__ = 'database'
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(200), unique=True)
@@ -44,7 +44,7 @@ class logindatabase(db.Model):
         self.username = username
         self.password = password
         self.email = email
-        
+   '''     
 
 
 
