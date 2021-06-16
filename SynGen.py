@@ -946,7 +946,7 @@ class compare_algo:
         sscores = [dbscan, kmeans]
         
         #plt.plot(algoList[1:], sscores, color = 'b', marker = 'o', markersize = 10, label = "Silhouette Score", linestyle = '--', linewidth = 3)
-        df = pd.DataFrame({'Algorithm': algoList[1:], 'Silhouette Score': sscores})
+        df = pd.DataFrame({'Algorithm': algoList[2:], 'Silhouette Score': sscores})
         splot = sns.barplot(x = 'Algorithm', y = 'Silhouette Score', data = df)
         for p in splot.patches:
             splot.annotate(format(p.get_height(), '.1f'), 
