@@ -11,7 +11,7 @@ PyYAML==5.4.1
 scikit_learn==0.24.2
 gunicorn==20.0.4
 openpyxl == 3.0.7
-configparser == 5.0.2
+
 sdv == 0.10.1
 flask-sqlalchemy == 2.5.1
 psycopg2 == 2.8.6
