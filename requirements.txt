@@ -13,7 +13,7 @@ gunicorn==20.0.4
 -f https://download.pytorch.org/whl/torch_stable.html
 torch==1.6.0+cpu
 torchvision==0.7.0+cpu
-sdv 0.10.1
+sdv ==  0.10.1
 flask-sqlalchemy == 2.5.1
 psycopg2 == 2.8.6
 mysqlclient == 2.0.3
